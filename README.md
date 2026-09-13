@@ -38,10 +38,10 @@
 <div align="center">
 
   <!-- GitHub Streak Stats -->
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=YOUR_USERNAME&theme=tokyonight&hide_border=true&border_radius=8" alt="Streak Stats" width="49%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mohameddddt&theme=tokyonight&hide_border=true&border_radius=8" alt="Streak Stats" width="49%" />
 
   <!-- Top Languages Card -->
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=tokyonight&hide_border=true&border_radius=8" alt="Top Languages" width="45%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mohameddddt&layout=compact&theme=tokyonight&hide_border=true&border_radius=8" alt="Top Languages" width="45%" />
 
 </div>
 
