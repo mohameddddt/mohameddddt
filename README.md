@@ -56,10 +56,7 @@ const mohamed = {
 
 <div align="center">
 
-  <img src="https://streak-stats.demolab.com/?user=mohameddddt&theme=tokyonight&hide_border=true&border_radius=8" alt="Streak Stats" width="49%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mohameddddt&layout=compact&theme=tokyonight&hide_border=true&border_radius=8" alt="Top Languages" width="45%" />
-
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mohameddddt&theme=tokyo-night&hide_border=true&area=true&radius=8" alt="Activity Graph" width="95%" />
+  <img src="https://streak-stats.demolab.com/?user=mohameddddt&theme=tokyonight&hide_border=true&border_radius=8" alt="Streak Stats" width="70%" />
 
 </div>
 

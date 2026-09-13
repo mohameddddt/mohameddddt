@@ -19,7 +19,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+
+      - name: Generate 3D contribution calendar
+        uses: yoshi389111/github-profile-3d-contrib@v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      # Runs before snk, whose Docker container leaves dist/ owned by root.
+      - name: Collect 3D calendar into dist
+        run: |
+          mkdir -p dist
+          cp -r profile-3d-contrib dist/
+          ls -R dist
 
       - name: Generate contribution snake
         uses: Platane/snk@v3
@@ -28,15 +41,6 @@ jobs:
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-
-      - name: Generate 3D contribution calendar
-        uses: yoshi389111/github-profile-3d-contrib@v0.9.3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-
-      - name: Collect 3D calendar into dist
-        run: cp -r profile-3d-contrib dist/
 
       - name: Push assets to output branch
         uses: crazy-max/ghaction-github-pages@v5
