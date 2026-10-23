@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234 40" width="234" height="40" role="img" aria-label="Activity">
+<style>.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace}</style>
+<text x="0" y="29" class="mono" font-size="17" font-weight="600" fill="#4d7c0f">03</text>
+<text x="32" y="29" class="mono" font-size="17" fill="#e2e0d8">/</text>
+<text x="52" y="30" class="sans" font-size="27" font-weight="800" letter-spacing="-.6" fill="#141821">Activity</text>
+<rect x="182" y="20" width="48" height="3" rx="1.5" fill="#4d7c0f"/>
+</svg>

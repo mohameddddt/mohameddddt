@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="drp solve city.json --method alns">
+<style>.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1220"/><stop offset="1" stop-color="#111a2e"/></linearGradient>
+  <pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity=".035"/></pattern>
+  <clipPath id="c"><rect width="640" height="360" rx="14"/></clipPath>
+</defs>
+<g clip-path="url(#c)">
+<rect width="640" height="360" fill="url(#bg)"/>
+<rect width="640" height="360" fill="url(#g)"/>
+<text x="26" y="41" class="mono" font-size="14" fill="#ffffff" fill-opacity=".55">drp solve city.json --method alns</text>
+<rect x="524.8" y="22" width="91.2" height="26" rx="13" fill="#22d3ee" fill-opacity=".14" stroke="#22d3ee" stroke-opacity=".5"/><text x="570.4" y="40" text-anchor="middle" class="mono" font-size="13" fill="#22d3ee">gap 0.0%</text>
+
+<defs><pattern id="h" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#fb7185" stroke-opacity=".45" stroke-width="3"/></pattern></defs>
+<polygon points="500,138 548,122 582,160 560,202 508,192" fill="url(#h)" stroke="#fb7185" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="520" y="168" class="mono" font-size="12" fill="#fb7185">no-fly</text><path id="r22d3ee" d="M318 214 L206 140 L140 186 L164 252 L250 262 L318 214" fill="none" stroke="#22d3ee" stroke-width="2.6" stroke-linejoin="round" stroke-opacity=".9"/><circle cx="206" cy="140" r="7" fill="#0b1420" stroke="#22d3ee" stroke-width="2.5"/><circle cx="140" cy="186" r="7" fill="#0b1420" stroke="#22d3ee" stroke-width="2.5"/><circle cx="164" cy="252" r="7" fill="#0b1420" stroke="#22d3ee" stroke-width="2.5"/><circle cx="250" cy="262" r="7" fill="#0b1420" stroke="#22d3ee" stroke-width="2.5"/><g><path d="M-7 0H7M0 -7V7" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/><circle r="3.5" fill="#22d3ee"/><animateMotion dur="11s" repeatCount="indefinite"><mpath href="#r22d3ee"/></animateMotion></g><path id="ra78bfa" d="M318 214 L290 112 L372 84 L470 104 L420 160 L318 214" fill="none" stroke="#a78bfa" stroke-width="2.6" stroke-linejoin="round" stroke-opacity=".9"/><circle cx="290" cy="112" r="7" fill="#0b1420" stroke="#a78bfa" stroke-width="2.5"/><circle cx="372" cy="84" r="7" fill="#0b1420" stroke="#a78bfa" stroke-width="2.5"/><circle cx="470" cy="104" r="7" fill="#0b1420" stroke="#a78bfa" stroke-width="2.5"/><circle cx="420" cy="160" r="7" fill="#0b1420" stroke="#a78bfa" stroke-width="2.5"/><g><path d="M-7 0H7M0 -7V7" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/><circle r="3.5" fill="#a78bfa"/><animateMotion dur="11s" repeatCount="indefinite"><mpath href="#ra78bfa"/></animateMotion></g><path id="rfbbf24" d="M318 214 L470 262 L540 232 L548 300 L410 316 L318 214" fill="none" stroke="#fbbf24" stroke-width="2.6" stroke-linejoin="round" stroke-opacity=".9"/><circle cx="470" cy="262" r="7" fill="#0b1420" stroke="#fbbf24" stroke-width="2.5"/><circle cx="540" cy="232" r="7" fill="#0b1420" stroke="#fbbf24" stroke-width="2.5"/><circle cx="548" cy="300" r="7" fill="#0b1420" stroke="#fbbf24" stroke-width="2.5"/><circle cx="410" cy="316" r="7" fill="#0b1420" stroke="#fbbf24" stroke-width="2.5"/><g><path d="M-7 0H7M0 -7V7" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/><circle r="3.5" fill="#fbbf24"/><animateMotion dur="11s" repeatCount="indefinite"><mpath href="#rfbbf24"/></animateMotion></g><rect x="306" y="202" width="24" height="24" rx="4" fill="#ffffff"/><text x="318" y="250" text-anchor="middle" class="mono" font-size="12" fill="#ffffff" fill-opacity=".7">depot</text>
+<g transform="translate(26 300)" class="mono" font-size="12" fill="#ffffff" fill-opacity=".7">
+  <text y="0">energy ∝ distance × (mass + load)</text>
+  <text y="20">B&amp;B · GA · SA · ALNS</text>
+</g>
+</g>
+<rect x=".5" y=".5" width="639" height="359" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="Mohamed Sahnoune Toubal, AI engineering student at ENSIA, Algiers.">
+<style>
+.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif} .mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace}
+.flow{animation:flow 3.6s linear infinite}
+@keyframes flow{from{stroke-dashoffset:14}to{stroke-dashoffset:-430}}
+.pulse{animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+.blink{animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.flow,.pulse,.blink{animation:none}}
+</style>
+<defs>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#232b3b"/></pattern>
+  <linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#111723"/><stop offset=".55" stop-color="#111723" stop-opacity=".2"/><stop offset="1" stop-color="#111723" stop-opacity="0"/></linearGradient>
+  <clipPath id="r"><rect width="1200" height="400" rx="20"/></clipPath>
+</defs>
+<g clip-path="url(#r)">
+  <rect width="1200" height="400" fill="#111723"/>
+  <rect width="1200" height="400" fill="url(#dots)"/>
+  <rect width="1200" height="400" fill="url(#fade)"/>
+  <rect x="0" y="0" width="1200" height="5" fill="#22d3ee"/>
+  <rect x="300" y="0" width="300" height="5" fill="#a78bfa"/>
+  <rect x="600" y="0" width="300" height="5" fill="#a3e635"/>
+  <rect x="900" y="0" width="300" height="5" fill="#fbbf24"/>
+</g>
+<rect x=".5" y=".5" width="1199" height="399" rx="20" fill="none" stroke="#232b3b"/>
+
+<text x="72" y="78" class="mono" font-size="18" fill="#8b95a7"><tspan fill="#22d3ee">~/mohameddddt</tspan> · ENSIA, Algiers<tspan class="blink" fill="#22d3ee"> _</tspan></text>
+<text x="70" y="150" class="sans" font-size="68" font-weight="800" letter-spacing="-2" fill="#e8ecf4">Mohamed</text>
+<text x="70" y="222" class="sans" font-size="68" font-weight="800" letter-spacing="-2" fill="#e8ecf4">Sahnoune Toubal<tspan fill="#22d3ee">.</tspan></text>
+<text x="72" y="266" class="sans" font-size="21" fill="#8b95a7">AI engineering student. I train models for vision, speech</text>
+<text x="72" y="294" class="sans" font-size="21" fill="#8b95a7">and language, and build the apps they live in.</text>
+<rect x="72" y="320" width="183.6" height="34" rx="17" fill="#161e2d" stroke="#232b3b"/><circle cx="88" cy="337" r="4" fill="#22d3ee"/><text x="99" y="342" class="mono" font-size="16" fill="#e8ecf4">machine learning</text>
+<rect x="265.6" y="320" width="174.0" height="34" rx="17" fill="#161e2d" stroke="#232b3b"/><circle cx="281.6" cy="337" r="4" fill="#a78bfa"/><text x="292.6" y="342" class="mono" font-size="16" fill="#e8ecf4">computer vision</text>
+<rect x="449.6" y="320" width="145.2" height="34" rx="17" fill="#161e2d" stroke="#232b3b"/><circle cx="465.6" cy="337" r="4" fill="#a3e635"/><text x="476.6" y="342" class="mono" font-size="16" fill="#e8ecf4">speech &amp; NLP</text>
+<rect x="604.8" y="320" width="126.0" height="34" rx="17" fill="#161e2d" stroke="#232b3b"/><circle cx="620.8" cy="337" r="4" fill="#fbbf24"/><text x="631.8" y="342" class="mono" font-size="16" fill="#e8ecf4">full-stack</text>
+
+<line x1="800" y1="146.0" x2="910" y2="92.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="146.0" x2="910" y2="146.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="146.0" x2="910" y2="200.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="146.0" x2="910" y2="254.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="146.0" x2="910" y2="308.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="200.0" x2="910" y2="92.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="200.0" x2="910" y2="146.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="200.0" x2="910" y2="200.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="200.0" x2="910" y2="254.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="200.0" x2="910" y2="308.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="254.0" x2="910" y2="92.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="254.0" x2="910" y2="146.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="254.0" x2="910" y2="200.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="254.0" x2="910" y2="254.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="800" y1="254.0" x2="910" y2="308.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="92.0" x2="1020" y2="92.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="92.0" x2="1020" y2="146.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="92.0" x2="1020" y2="200.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="92.0" x2="1020" y2="254.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="92.0" x2="1020" y2="308.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="146.0" x2="1020" y2="92.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="146.0" x2="1020" y2="146.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="146.0" x2="1020" y2="200.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="146.0" x2="1020" y2="254.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="146.0" x2="1020" y2="308.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="200.0" x2="1020" y2="92.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="200.0" x2="1020" y2="146.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="200.0" x2="1020" y2="200.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="200.0" x2="1020" y2="254.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="200.0" x2="1020" y2="308.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="254.0" x2="1020" y2="92.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="254.0" x2="1020" y2="146.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="254.0" x2="1020" y2="200.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="254.0" x2="1020" y2="254.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="254.0" x2="1020" y2="308.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="308.0" x2="1020" y2="92.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="308.0" x2="1020" y2="146.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="308.0" x2="1020" y2="200.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="308.0" x2="1020" y2="254.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="910" y1="308.0" x2="1020" y2="308.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="92.0" x2="1120" y2="173.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="92.0" x2="1120" y2="227.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="146.0" x2="1120" y2="173.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="146.0" x2="1120" y2="227.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="200.0" x2="1120" y2="173.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="200.0" x2="1120" y2="227.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="254.0" x2="1120" y2="173.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="254.0" x2="1120" y2="227.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="308.0" x2="1120" y2="173.0" stroke="#232b3b" stroke-width="1.2"/>
+<line x1="1020" y1="308.0" x2="1120" y2="227.0" stroke="#232b3b" stroke-width="1.2"/>
+<path d="M800 146.0 L910 146.0 L1020 200.0 L1120 173.0" fill="none" stroke="#22d3ee" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="14 400" class="flow" style="animation-delay:0.0s"/>
+<path d="M800 146.0 L910 146.0 L1020 200.0 L1120 173.0" fill="none" stroke="#22d3ee" stroke-width="1.2" stroke-opacity="0.35"/>
+<path d="M800 254.0 L910 254.0 L1020 146.0 L1120 227.0" fill="none" stroke="#a78bfa" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="14 400" class="flow" style="animation-delay:0.9s"/>
+<path d="M800 254.0 L910 254.0 L1020 146.0 L1120 227.0" fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-opacity="0.35"/>
+<path d="M800 200.0 L910 92.0 L1020 308.0 L1120 173.0" fill="none" stroke="#a3e635" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="14 400" class="flow" style="animation-delay:1.8s"/>
+<path d="M800 200.0 L910 92.0 L1020 308.0 L1120 173.0" fill="none" stroke="#a3e635" stroke-width="1.2" stroke-opacity="0.35"/>
+<path d="M800 146.0 L910 308.0 L1020 254.0 L1120 227.0" fill="none" stroke="#fbbf24" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="14 400" class="flow" style="animation-delay:2.7s"/>
+<path d="M800 146.0 L910 308.0 L1020 254.0 L1120 227.0" fill="none" stroke="#fbbf24" stroke-width="1.2" stroke-opacity="0.35"/>
+
+<circle cx="800" cy="146.0" r="9" fill="#22d3ee" stroke="#22d3ee" stroke-width="2" class="pulse" style="animation-delay:0.0s"/>
+<circle cx="800" cy="200.0" r="9" fill="#111723" stroke="#a78bfa" stroke-width="2" class="pulse" style="animation-delay:0.6s"/>
+<circle cx="800" cy="254.0" r="9" fill="#111723" stroke="#a3e635" stroke-width="2" class="pulse" style="animation-delay:1.2s"/>
+<circle cx="910" cy="92.0" r="9" fill="#fbbf24" stroke="#fbbf24" stroke-width="2" class="pulse" style="animation-delay:1.7999999999999998s"/>
+<circle cx="910" cy="146.0" r="9" fill="#111723" stroke="#22d3ee" stroke-width="2" class="pulse" style="animation-delay:2.4s"/>
+<circle cx="910" cy="200.0" r="9" fill="#111723" stroke="#a78bfa" stroke-width="2" class="pulse" style="animation-delay:0.0s"/>
+<circle cx="910" cy="254.0" r="9" fill="#a3e635" stroke="#a3e635" stroke-width="2" class="pulse" style="animation-delay:0.6s"/>
+<circle cx="910" cy="308.0" r="9" fill="#111723" stroke="#fbbf24" stroke-width="2" class="pulse" style="animation-delay:1.2s"/>
+<circle cx="1020" cy="92.0" r="9" fill="#111723" stroke="#22d3ee" stroke-width="2" class="pulse" style="animation-delay:1.7999999999999998s"/>
+<circle cx="1020" cy="146.0" r="9" fill="#a78bfa" stroke="#a78bfa" stroke-width="2" class="pulse" style="animation-delay:2.4s"/>
+<circle cx="1020" cy="200.0" r="9" fill="#111723" stroke="#a3e635" stroke-width="2" class="pulse" style="animation-delay:0.0s"/>
+<circle cx="1020" cy="254.0" r="9" fill="#111723" stroke="#fbbf24" stroke-width="2" class="pulse" style="animation-delay:0.6s"/>
+<circle cx="1020" cy="308.0" r="9" fill="#22d3ee" stroke="#22d3ee" stroke-width="2" class="pulse" style="animation-delay:1.2s"/>
+<circle cx="1120" cy="173.0" r="9" fill="#111723" stroke="#a78bfa" stroke-width="2" class="pulse" style="animation-delay:1.7999999999999998s"/>
+<circle cx="1120" cy="227.0" r="9" fill="#111723" stroke="#a3e635" stroke-width="2" class="pulse" style="animation-delay:2.4s"/>
+
+</svg>
