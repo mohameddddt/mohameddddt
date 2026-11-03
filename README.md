@@ -129,17 +129,29 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
 
 <p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=py,pytorch,tensorflow,sklearn,ts,js,dart,kotlin,cpp,java&perline=10&theme=dark">
-    <img alt="Python, PyTorch, TensorFlow, scikit-learn, TypeScript, JavaScript, Dart, Kotlin, C++, Java" src="https://skillicons.dev/icons?i=py,pytorch,tensorflow,sklearn,ts,js,dart,kotlin,cpp,java&perline=10&theme=light">
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=py,ts,js,dart,kotlin,java,c,cpp,bash,pytorch,sklearn&perline=11&theme=dark">
+    <img alt="Python, TypeScript, JavaScript, Dart, Kotlin, Java, C, C++, Bash, PyTorch, scikit-learn" src="https://skillicons.dev/icons?i=py,ts,js,dart,kotlin,java,c,cpp,bash,pytorch,sklearn&perline=11&theme=light">
   </picture>
   <br>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,nextjs,nodejs,fastapi,flask,flutter,electron,postgres,supabase,docker&perline=10&theme=dark">
-    <img alt="React, Next.js, Node.js, FastAPI, Flask, Flutter, Electron, PostgreSQL, Supabase, Docker" src="https://skillicons.dev/icons?i=react,nextjs,nodejs,fastapi,flask,flutter,electron,postgres,supabase,docker&perline=10&theme=light">
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=tensorflow,react,nextjs,tailwind,vite,electron,flutter,nodejs,express,fastapi,flask&perline=11&theme=dark">
+    <img alt="TensorFlow Lite, React, Next.js, Tailwind CSS, Vite, Electron, Flutter, Node.js, Express, FastAPI, Flask" src="https://skillicons.dev/icons?i=tensorflow,react,nextjs,tailwind,vite,electron,flutter,nodejs,express,fastapi,flask&perline=11&theme=light">
+  </picture>
+  <br>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=postgres,sqlite,redis,supabase,firebase,vercel,docker,githubactions,linux,git&perline=11&theme=dark">
+    <img alt="PostgreSQL, SQLite, Redis, Supabase, Firebase, Vercel, Docker, GitHub Actions, Linux, Git" src="https://skillicons.dev/icons?i=postgres,sqlite,redis,supabase,firebase,vercel,docker,githubactions,linux,git&perline=11&theme=light">
   </picture>
 </p>
 
-Models first: gradient boosting, deep learning for audio, signals and text, retrieval and optimisation. Then whatever the model needs to be useful, on the web, mobile or desktop. I speak Arabic, French and English.
+<a href="https://mohameddddt.github.io/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-dark.svg">
+    <img alt="85 tools and techniques from my portfolio projects, in 11 areas: languages, machine learning, LLMs and retrieval, optimization, backend and APIs, web and desktop, mobile, data and cloud, media, quality and DevOps, and domains. Each shows how many projects use it." src="assets/toolbox-light.svg" width="100%">
+  </picture>
+</a>
+
+Models first: gradient boosting, deep learning for audio, vision and text, retrieval and optimisation. Then whatever the model needs to be useful, on the web, mobile or desktop. I speak Arabic, French and English.
 
 <br>
 

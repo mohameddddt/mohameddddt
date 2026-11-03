@@ -136,6 +136,74 @@ def header(mode, num, title, accent):
 </svg>"""
 
 
+# ---------------------------------------------------------------- toolbox
+# Mirrors the skills section of mohameddddt.github.io (lib/skills.ts): each skill with the number of
+# portfolio projects that use it, groups in the site's order, skills by use within a group.
+SKILLS = [
+    ("Languages", [("Python", 11), ("Dart", 6), ("TypeScript", 5), ("JavaScript", 3), ("SQL", 3), ("Kotlin", 2), ("Java", 1)]),
+    ("Machine learning", [("scikit-learn", 5), ("NumPy", 5), ("Jupyter", 5), ("PyTorch", 4), ("pandas", 4), ("Matplotlib", 4),
+                          ("XGBoost", 3), ("Hugging Face Transformers", 2), ("Ensemble learning", 2), ("LightGBM", 1), ("WavLM", 1),
+                          ("MedCPT", 1), ("MobileNetV3", 1), ("TensorFlow Lite", 1), ("librosa", 1), ("SciPy", 1)]),
+    ("LLMs & retrieval", [("Gemini API", 3), ("RAG", 1), ("Embeddings", 1), ("pgvector", 1)]),
+    ("Optimization", [("Integer programming", 2), ("PuLP", 2), ("Branch & Bound", 1), ("Genetic algorithms", 1),
+                      ("Simulated annealing", 1), ("ALNS", 1), ("Dynamic programming", 1)]),
+    ("Backend & APIs", [("FastAPI", 5), ("JWT", 4), ("Flask", 2), ("Node.js", 2), ("Express", 2), ("SQLAlchemy", 2),
+                        ("Gunicorn", 1), ("Celery", 1)]),
+    ("Web & desktop", [("React", 5), ("Vite", 3), ("Next.js", 2), ("Tailwind CSS", 2), ("TanStack Query", 1), ("MapLibre", 1),
+                       ("Electron", 1)]),
+    ("Mobile", [("Flutter", 6), ("SQLite", 4), ("BLoC", 3), ("Firebase Cloud Messaging", 2), ("Jetpack Compose", 1),
+                ("Material 3", 1), ("Coil", 1), ("DataStore", 1), ("Provider", 1), ("GetIt", 1), ("Hive", 1)]),
+    ("Data & cloud", [("PostgreSQL", 5), ("Supabase", 4), ("Render", 3), ("Vercel", 2), ("PostGIS", 1), ("Redis", 1), ("Kaggle", 1)]),
+    ("Media", [("ffmpeg", 3), ("yt-dlp", 2), ("ExoPlayer", 1), ("WebTorrent", 1), ("Invidious", 1), ("Chromaprint", 1)]),
+    ("Quality & DevOps", [("GitHub Actions", 6), ("Docker", 5), ("pytest", 5), ("Sentry", 2), ("Playwright", 1), ("PyInstaller", 1)]),
+    ("Domains", [("Computer vision", 2), ("NLP", 2), ("Audio", 2), ("Geospatial", 2), ("Sports analytics", 1), ("Security", 1)]),
+]
+SKILLS_ALSO = ["C", "C++", "Bash", "Linux", "Git"]
+SKILLS_TOP = {"Python", "Dart", "Flutter", "GitHub Actions", "TypeScript", "scikit-learn", "NumPy", "Jupyter"}
+
+
+def toolbox(mode):
+    t = THEMES[mode]
+    W, LABEL_W, CHIP_H, GAP = 1200, 236, 36, 9
+    cw = 15.5 * .61  # mono advance at 15.5px, with room for wider fallbacks
+    accents = ["cyan", "violet", "lime", "amber", "rose"]
+    out, y = "", 2
+    for gi, (group, skills) in enumerate(SKILLS):
+        acc = t[accents[gi % len(accents)]]
+        if gi:
+            out += f'<line x1="0" x2="{W}" y1="{y - 11}" y2="{y - 11}" stroke="{t["line"]}"/>'
+        out += (f'<circle cx="6" cy="{y + 18}" r="5" fill="{acc}"/>'
+                f'<text x="22" y="{y + 24}" class="sans" font-size="18" font-weight="700" fill="{t["ink"]}">{esc(group)}</text>'
+                f'<text x="{LABEL_W - 18}" y="{y + 24}" text-anchor="end" class="mono" font-size="14" fill="{t["muted"]}">{len(skills)}</text>')
+        x, row_y = LABEL_W, y
+        for name, n in skills:
+            w = len(name) * cw + len(str(n)) * cw + 40
+            if x + w > W:
+                x, row_y = LABEL_W, row_y + CHIP_H + GAP
+            top = name in SKILLS_TOP
+            bold = ' font-weight="700"' if top else ""
+            out += (f'<rect x="{x:.1f}" y="{row_y}" width="{w:.1f}" height="{CHIP_H}" rx="{CHIP_H / 2}" '
+                    f'fill="{acc if top else t["chip"]}" fill-opacity="{.16 if top else 1}" stroke="{acc if top else t["line"]}"/>'
+                    f'<text x="{x + 15:.1f}" y="{row_y + 23.5}" class="mono" font-size="15.5" fill="{t["ink"]}"{bold}>{esc(name)}</text>'
+                    f'<text x="{x + w - 15:.1f}" y="{row_y + 23.5}" text-anchor="end" class="mono" font-size="14" '
+                    f'fill="{acc if top else t["muted"]}">{n}</text>')
+            x += w + GAP
+        y = row_y + CHIP_H + 30
+    also = " · ".join(SKILLS_ALSO)
+    out += (f'<line x1="0" x2="{W}" y1="{y - 11}" y2="{y - 11}" stroke="{t["line"]}"/>'
+            f'<text x="22" y="{y + 20}" class="sans" font-size="17" fill="{t["muted"]}">Also from coursework and everyday use: '
+            f'<tspan class="mono" fill="{t["ink"]}">{esc(also)}</tspan></text>'
+            f'<text x="{W - 2}" y="{y + 20}" text-anchor="end" class="sans" font-size="15" fill="{t["muted"]}">'
+            f'number = projects that use it</text>')
+    H = y + 34
+    total = sum(len(s) for _, s in SKILLS)
+    return f"""
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{total} skills in {len(SKILLS)} areas">
+<style>.sans{{font-family:{SANS}}} .mono{{font-family:{MONO}}}</style>
+{out}
+</svg>"""
+
+
 # ---------------------------------------------------------------- project covers (one per project, theme-neutral)
 CW, CH = 640, 360
 DARK = THEMES["dark"]
@@ -610,6 +678,7 @@ def jerd():
 
 for mode in ("dark", "light"):
     write(f"banner-{mode}.svg", banner(mode))
+    write(f"toolbox-{mode}.svg", toolbox(mode))
     for slug, num, title, acc in [("work", "01", "Selected work", "cyan"), ("toolbox", "02", "Toolbox", "violet"),
                                   ("activity", "03", "Activity", "lime"), ("hello", "04", "Say hello.", "amber")]:
         write(f"h-{slug}-{mode}.svg", header(mode, num, title, acc))
