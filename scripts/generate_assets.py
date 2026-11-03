@@ -270,34 +270,6 @@ def ser():
     cover("speech-emotion", "WavLM layers 5-9 → logistic regression", "#170e1a", "#21122a", rose, lbl + bars + play + pb, "acc 0.742")
 
 
-def plag():
-    am, rose = "#fbbf24", "#fb7185"
-    rnd = random.Random(3)
-
-    def doc(x0, title, marks):
-        out = (f'<rect x="{x0}" y="64" width="232" height="266" rx="10" fill="#ffffff" fill-opacity=".04" stroke="#ffffff" stroke-opacity=".1"/>'
-               f'<text x="{x0 + 16}" y="88" class="mono" font-size="12" fill="#ffffff" fill-opacity=".6">{title}</text>')
-        ys = []
-        for i in range(12):
-            y = 106 + i * 18
-            w = 200 - rnd.random() * 60 if i % 4 != 3 else 110
-            hit = i in marks
-            out += f'<rect x="{x0 + 16}" y="{y}" width="{w:.0f}" height="7" rx="3.5" fill="{am if hit else "#ffffff"}" fill-opacity="{0.9 if hit else 0.16}"/>'
-            if hit:
-                out += f'<rect x="{x0 + 10}" y="{y - 5}" width="{w + 12:.0f}" height="17" rx="4" fill="{am}" fill-opacity=".12"/>'
-                ys.append(y + 3.5)
-        return out, ys
-
-    left, ly = doc(40, "submission.docx", [2, 3, 7, 8, 9])
-    right, ry = doc(368, "source · arXiv", [1, 2, 9, 10, 11])
-    links = ""
-    for a_, b_ in [(ly[0], ry[0]), (ly[1], ry[1]), (ly[2], ry[2]), (ly[3], ry[3]), (ly[4], ry[4])]:
-        links += f'<path d="M272 {a_} C320 {a_} 320 {b_} 368 {b_}" fill="none" stroke="{am}" stroke-opacity=".55" stroke-width="1.6"/>'
-    badge = (f'<rect x="240" y="318" width="160" height="30" rx="15" fill="#120f07" stroke="{am}" stroke-opacity=".6"/>'
-             f'<text x="320" y="338" text-anchor="middle" class="mono" font-size="12.5" fill="{am}">0.81 · needs review</text>')
-    cover("plagiarism", "", "#15120a", "#1f190d", am, left + right + links + badge)
-
-
 def rag():
     v, cy, lime = "#a78bfa", "#22d3ee", "#a3e635"
     rnd = random.Random(11)
@@ -341,33 +313,6 @@ def rag():
 </g>"""
     cover("medical-rag", "pgvector · top-k = 3", "#100d1d", "#1a1430", v, pts + hl + card)
 
-
-def amc():
-    cy, v, lime = "#22d3ee", "#a78bfa", "#a3e635"
-    rnd = random.Random(5)
-    cx0, cy0, s = 200, 196, 34
-    axes = (f'<line x1="{cx0 - 150}" y1="{cy0}" x2="{cx0 + 150}" y2="{cy0}" stroke="#ffffff" stroke-opacity=".2"/>'
-            f'<line x1="{cx0}" y1="{cy0 - 140}" x2="{cx0}" y2="{cy0 + 140}" stroke="#ffffff" stroke-opacity=".2"/>'
-            f'<text x="{cx0 + 140}" y="{cy0 - 8}" class="mono" font-size="12" fill="#ffffff" fill-opacity=".5">I</text>'
-            f'<text x="{cx0 + 8}" y="{cy0 - 128}" class="mono" font-size="12" fill="#ffffff" fill-opacity=".5">Q</text>')
-    pts = ""
-    for i in (-3, -1, 1, 3):
-        for q in (-3, -1, 1, 3):
-            for _ in range(16):
-                x = cx0 + (i + rnd.gauss(0, .2)) * s
-                y = cy0 - (q + rnd.gauss(0, .2)) * s
-                pts += f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.3" fill="{cy}" fill-opacity=".75"/>'
-    classes = [("8PSK", .01), ("AM-DSB", .00), ("BPSK", .00), ("CPFSK", .00), ("GFSK", .00), ("PAM4", .02),
-               ("QAM16", .91), ("QAM64", .05), ("QPSK", .01), ("WBFM", .00), ("AM-SSB", .00)]
-    lst = ""
-    for k, (name, p) in enumerate(classes):
-        y = 74 + k * 24
-        hit = name == "QAM16"
-        lst += (f'<text x="400" y="{y + 4}" class="mono" font-size="12" fill="{lime if hit else "#ffffff"}" fill-opacity="{1 if hit else .5}">{name}</text>'
-                f'<rect x="470" y="{y - 5}" width="120" height="8" rx="4" fill="#ffffff" fill-opacity=".07"/>'
-                f'<rect x="470" y="{y - 5}" width="{max(2, 120 * p):.1f}" height="8" rx="4" fill="{lime if hit else cy}" fill-opacity="{1 if hit else .6}"/>')
-    lst += f'<text x="400" y="352" class="mono" font-size="11" fill="#ffffff" fill-opacity=".45">SNR +18 dB · 128 I/Q samples</text>'
-    cover("amc", "RadioML 2016.10A", "#071518", "#0c2025", cy, axes + pts + lst)
 
 
 def cadence():
@@ -431,11 +376,244 @@ def streamline():
     cover("streamline", "stream://tt0000001", "#0b0c1c", "#141634", v, frame + pieces + head + legend)
 
 
+def eo_bench():
+    teal, lime, am, rose = "#2dd4bf", "#a3e635", "#fbbf24", "#fb7185"
+    rnd = random.Random(21)
+    # a strip of Sentinel-2-like tiles: forest, crop, water, urban, ...
+    land = ["#1f5f3a", "#3f7a2c", "#8a7a3a", "#1d4e6e", "#6b6f78", "#2f6f4f", "#9a8452", "#25587a"]
+    tiles = ""
+    for r in range(5):
+        for c in range(6):
+            x, y = 36 + c * 46, 70 + r * 46
+            tiles += f'<rect x="{x}" y="{y}" width="42" height="42" rx="5" fill="{land[rnd.randrange(len(land))]}"/>'
+            for _ in range(3):
+                tiles += (f'<rect x="{x + rnd.random() * 30:.1f}" y="{y + rnd.random() * 30:.1f}" width="{4 + rnd.random() * 10:.1f}" '
+                          f'height="{3 + rnd.random() * 8:.1f}" rx="2" fill="#ffffff" fill-opacity="{.05 + rnd.random() * .12:.2f}"/>')
+    # a haze band sweeping the tiles, standing in for the EuroSAT-C corruptions
+    tiles += (f'<rect x="36" y="70" width="272" height="226" fill="#ffffff" fill-opacity=".08">'
+              f'<animate attributeName="width" values="0;272;0" dur="7s" repeatCount="indefinite"/></rect>'
+              f'<text x="36" y="320" class="mono" font-size="12" fill="#ffffff" fill-opacity=".6">haze · noise · band shift · blur</text>')
+    # leaderboard with 95% CIs
+    rows = [("ViT-S/16", 69.56, 68.86, 70.19, teal), ("ConvNeXt-T", 66.48, 65.65, 67.23, lime),
+            ("EfficientNet-B0", 53.63, 52.81, 54.35, am), ("ResNet-50", 44.92, 43.86, 45.96, rose)]
+    lb = '<text x="340" y="82" class="mono" font-size="12" fill="#ffffff" fill-opacity=".55">EuroSAT-C · mCA [95% CI]</text>'
+    x0, x1, lo_v, hi_v = 340, 604, 40, 75
+
+    def sx(val):
+        return x0 + (val - lo_v) / (hi_v - lo_v) * (x1 - x0)
+
+    for k, (name, m, lo, hi, col) in enumerate(rows):
+        y = 112 + k * 50
+        lb += (f'<text x="{x0}" y="{y}" class="mono" font-size="12.5" fill="#ffffff" fill-opacity="{1 if k == 0 else .7}">{name}</text>'
+               f'<text x="{x1}" y="{y}" text-anchor="end" class="mono" font-size="12.5" fill="{col}">{m:.2f}</text>'
+               f'<rect x="{x0}" y="{y + 10}" width="{x1 - x0}" height="6" rx="3" fill="#ffffff" fill-opacity=".06"/>'
+               f'<rect x="{x0}" y="{y + 10}" width="{sx(m) - x0:.1f}" height="6" rx="3" fill="{col}" fill-opacity=".85"/>'
+               f'<path d="M{sx(lo):.1f} {y + 20}v8M{sx(lo):.1f} {y + 24}H{sx(hi):.1f}M{sx(hi):.1f} {y + 20}v8" fill="none" stroke="{col}" stroke-width="2"/>')
+    lb += '<text x="340" y="320" class="mono" font-size="12" fill="#ffffff" fill-opacity=".6">5 benchmarks · hidden splits</text>'
+    cover("eo-bench", "eo-bench · leaderboard", "#06171a", "#0b2226", teal, tiles + lb, "hidden split")
+
+
+def savepoint():
+    ember = "#fb923c"
+    star = "M10 0 L13 7 L20 7.6 L14.6 12.2 L16.4 19.4 L10 15.4 L3.6 19.4 L5.4 12.2 L0 7.6 L7 7Z"
+    covers = [("#7c2d12", "#fb923c", 5), ("#312e81", "#a78bfa", 4.5), ("#164e63", "#22d3ee", 4),
+              ("#3f6212", "#a3e635", 3.5), ("#831843", "#fb7185", 5), ("#78350f", "#fbbf24", 4)]
+    shelf = (f'<defs><linearGradient id="half"><stop offset=".5" stop-color="{ember}"/>'
+             f'<stop offset=".5" stop-color="#ffffff" stop-opacity=".15"/></linearGradient></defs>')
+    for k, (c1, c2, stars) in enumerate(covers):
+        x, y = 36 + (k % 3) * 92, 68 + (k // 3) * 136
+        shelf += (f'<defs><linearGradient id="cv{k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{c2}"/>'
+                  f'<stop offset="1" stop-color="{c1}"/></linearGradient></defs>'
+                  f'<rect x="{x}" y="{y}" width="80" height="106" rx="7" fill="url(#cv{k})"/>'
+                  f'<path d="M{x} {y + 78} L{x + 26} {y + 56} L{x + 44} {y + 70} L{x + 62} {y + 50} L{x + 80} {y + 66} '
+                  f'V{y + 99} a7 7 0 0 1 -7 7 H{x + 7} a7 7 0 0 1 -7 -7Z" fill="#000000" fill-opacity=".28"/>')
+        for i in range(5):
+            fill, op = (ember, 1) if i + 1 <= stars else (("url(#half)", 1) if i + .5 == stars else ("#ffffff", .15))
+            shelf += f'<path transform="translate({x + 4 + i * 15} {y + 116}) scale(.6)" d="{star}" fill="{fill}" fill-opacity="{op}"/>'
+    # yearly goal ring
+    cx, cy0, r = 420, 140, 52
+    circ = 2 * math.pi * r
+    ring = (f'<circle cx="{cx}" cy="{cy0}" r="{r}" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="10"/>'
+            f'<circle cx="{cx}" cy="{cy0}" r="{r}" fill="none" stroke="{ember}" stroke-width="10" stroke-linecap="round" '
+            f'stroke-dasharray="{circ * .68:.1f} {circ:.1f}" transform="rotate(-90 {cx} {cy0})">'
+            f'<animate attributeName="stroke-dasharray" values="0 {circ:.1f};{circ * .68:.1f} {circ:.1f}" dur="2.4s"/></circle>'
+            f'<text x="{cx}" y="{cy0 + 4}" text-anchor="middle" class="sans" font-size="26" font-weight="800" fill="#ffffff">34</text>'
+            f'<text x="{cx}" y="{cy0 + 22}" text-anchor="middle" class="mono" font-size="11" fill="#ffffff" fill-opacity=".55">of 50</text>')
+    # play-session timer
+    timer = (f'<rect x="496" y="96" width="118" height="88" rx="10" fill="#ffffff" fill-opacity=".05" stroke="{ember}" stroke-opacity=".35"/>'
+             f'<circle cx="512" cy="116" r="4" fill="{ember}"><animate attributeName="fill-opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle>'
+             f'<text x="522" y="120" class="mono" font-size="11" fill="#ffffff" fill-opacity=".6">playing</text>'
+             f'<text x="508" y="152" class="mono" font-size="20" font-weight="700" fill="#ffffff">01:42</text>'
+             f'<text x="508" y="172" class="mono" font-size="11" fill="#ffffff" fill-opacity=".45">session</text>')
+    # activity heatmap
+    rnd = random.Random(14)
+    heat = '<text x="368" y="232" class="mono" font-size="11" fill="#ffffff" fill-opacity=".55">activity · 2026</text>'
+    for c in range(18):
+        for rr in range(5):
+            val = rnd.random()
+            op = .07 if val < .35 else (.3 if val < .6 else (.6 if val < .85 else 1))
+            heat += f'<rect x="{368 + c * 13.6:.1f}" y="{244 + rr * 13}" width="10.5" height="10" rx="2.5" fill="{ember}" fill-opacity="{op}"/>'
+    cover("savepoint", "Savepoint · game diary", "#150d14", "#22131c", ember, shelf + ring + timer + heat, "IGDB · Xbox")
+
+
+def lumen():
+    coral, paper = "#ff7a59", "#f4efe6"
+    serif = "Georgia, 'Times New Roman', serif"
+    rnd = random.Random(8)
+    hues = [("#ffb199", "#c2593f"), ("#a7c4b5", "#3e6b5a"), ("#9fbfd9", "#335d80"), ("#f1cf8f", "#a7742a"),
+            ("#e8a7b6", "#93465a"), ("#c9c3b6", "#5a554c")]
+    grid = (f'<text x="36" y="96" font-family="{serif}" font-size="34" font-style="italic" fill="{paper}">October</text>'
+            f'<text x="182" y="96" class="mono" font-size="11" fill="{paper}" fill-opacity=".5">142 photos · 6 videos</text>')
+    # masonry of photos, each a little landscape
+    cols = [(36, [84, 64, 70]), (142, [60, 92, 66]), (248, [78, 72, 70]), (354, [66, 84, 74]), (460, [90, 60, 70])]
+    k = 0
+    for x, hs in cols:
+        y = 112
+        for h in hs:
+            if y + h > 292:
+                break
+            top, bot = hues[k % len(hues)]
+            k += 1
+            grid += (f'<defs><linearGradient id="p{k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{top}"/>'
+                     f'<stop offset="1" stop-color="{bot}"/></linearGradient></defs>'
+                     f'<rect x="{x}" y="{y}" width="98" height="{h}" rx="8" fill="url(#p{k})"/>'
+                     f'<path d="M{x} {y + h * .72:.0f} Q{x + 30} {y + h * .45:.0f} {x + 52} {y + h * .64:.0f} T{x + 98} {y + h * .56:.0f} '
+                     f'V{y + h - 8} a8 8 0 0 1 -8 8 H{x + 8} a8 8 0 0 1 -8 -8Z" fill="#000000" fill-opacity=".22"/>'
+                     f'<circle cx="{x + 72}" cy="{y + h * .3:.0f}" r="{5 + rnd.random() * 5:.1f}" fill="#ffffff" fill-opacity=".55"/>')
+            if k == 7:  # a locked hidden folder
+                grid += (f'<rect x="{x}" y="{y}" width="98" height="{h}" rx="8" fill="#140f0d" fill-opacity=".72"/>'
+                         f'<rect x="{x + 41}" y="{y + h / 2 - 2:.0f}" width="16" height="13" rx="3" fill="none" stroke="{paper}" stroke-width="1.8"/>'
+                         f'<path d="M{x + 44} {y + h / 2 - 2:.0f} v-4 a5 5 0 0 1 10 0 v4" fill="none" stroke="{paper}" stroke-width="1.8"/>')
+            if k == 2:  # a favourite
+                grid += f'<path transform="translate({x + 8} {y + 8}) scale(.7)" d="M10 17 L2.5 9.5 A4.5 4.5 0 0 1 10 3.5 A4.5 4.5 0 0 1 17.5 9.5Z" fill="{coral}"/>'
+            y += h + 8
+    # floating frosted dock
+    dock = (f'<rect x="150" y="304" width="300" height="40" rx="20" fill="#2a211e" fill-opacity=".9" stroke="{paper}" stroke-opacity=".14"/>'
+            f'<rect x="162" y="312" width="76" height="24" rx="12" fill="{coral}"/>'
+            f'<text x="200" y="328" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="#1a1210">Photos</text>'
+            f'<text x="282" y="328" text-anchor="middle" class="sans" font-size="12" fill="{paper}" fill-opacity=".7">Albums</text>'
+            f'<text x="348" y="328" text-anchor="middle" class="sans" font-size="12" fill="{paper}" fill-opacity=".7">Search</text>'
+            f'<text x="412" y="328" text-anchor="middle" class="sans" font-size="12" fill="{paper}" fill-opacity=".7">Bin</text>')
+    side = ""
+    for i, (name, col) in enumerate([("Coral", coral), ("Sage", "#8fb39e"), ("Ocean", "#7fa6c9"), ("Amber", "#e3b45f")]):
+        side += f'<circle cx="{486 + i * 38}" cy="324" r="7" fill="{col}" stroke="{paper}" stroke-opacity="{.8 if i == 0 else 0}" stroke-width="2"/>'
+    cover("lumen", "Lumen · gallery", "#1b1513", "#261d1a", coral, grid + dock + side, "Compose")
+
+
+def mytube():
+    rose, cy, lime = "#fb7185", "#22d3ee", "#a3e635"
+    player = f"""
+<rect x="36" y="66" width="352" height="198" rx="12" fill="#07080d" stroke="#ffffff" stroke-opacity=".08"/>
+<defs><linearGradient id="vid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{rose}" stop-opacity=".35"/><stop offset="1" stop-color="{cy}" stop-opacity=".12"/></linearGradient></defs>
+<rect x="36" y="66" width="352" height="198" rx="12" fill="url(#vid)"/>
+<circle cx="150" cy="150" r="46" fill="#ffffff" fill-opacity=".06"/><circle cx="270" cy="180" r="64" fill="#ffffff" fill-opacity=".05"/>
+<rect x="52" y="236" width="320" height="4" rx="2" fill="#ffffff" fill-opacity=".18"/>
+<rect x="52" y="236" width="200" height="4" rx="2" fill="#ffffff" fill-opacity=".35"/>
+<rect x="52" y="236" width="128" height="4" rx="2" fill="{rose}"><animate attributeName="width" values="40;300;40" dur="12s" repeatCount="indefinite"/></rect>
+<path d="M54 252 l8 5 l-8 5Z" fill="#ffffff" fill-opacity=".8"/>
+<text x="74" y="261" class="mono" font-size="11" fill="#ffffff" fill-opacity=".6">6:12 / 14:03</text>
+<rect x="290" y="78" width="86" height="22" rx="11" fill="#000000" fill-opacity=".45"/>
+<text x="333" y="93" text-anchor="middle" class="mono" font-size="11" fill="#ffffff" fill-opacity=".75">1080p · 1.25×</text>
+<text x="36" y="292" class="mono" font-size="11" fill="#ffffff" fill-opacity=".45">k play · j/l 10 s · f full screen · m mute</text>"""
+    dl = '<text x="412" y="82" class="mono" font-size="12" fill="#ffffff" fill-opacity=".55">downloads → Videos\\yt</text>'
+    items = [("Lecture 07 · Optimisation", "720p", 1.0, lime), ("Live set · 2 h", "MP3", .62, rose),
+             ("Playlist · 18 videos", "480p", .28, cy), ("Talk · WSL2 tips", "1080p", 0, "#94a3b8")]
+    for k, (name, fmt, p, col) in enumerate(items):
+        y = 106 + k * 52
+        dl += (f'<rect x="412" y="{y - 12}" width="200" height="42" rx="8" fill="#ffffff" fill-opacity=".04" stroke="#ffffff" stroke-opacity=".07"/>'
+               f'<text x="424" y="{y + 4}" class="sans" font-size="12.5" fill="#ffffff" fill-opacity=".85">{esc(name)}</text>'
+               f'<text x="600" y="{y + 4}" text-anchor="end" class="mono" font-size="11" fill="{col}">{fmt}</text>'
+               f'<rect x="424" y="{y + 14}" width="176" height="4" rx="2" fill="#ffffff" fill-opacity=".08"/>')
+        if p:
+            dl += f'<rect x="424" y="{y + 14}" width="{176 * p:.0f}" height="4" rx="2" fill="{col}"/>'
+    dl += '<text x="412" y="320" class="mono" font-size="11" fill="#ffffff" fill-opacity=".45">127.0.0.1 only · stdlib backend</text>'
+    cover("mytube", "localhost:8080 · My Tube", "#120b10", "#1d1119", rose, player + dl, "0 MB idle")
+
+
+def somatrack():
+    lime, cy, am, rose = "#a3e635", "#22d3ee", "#fbbf24", "#fb7185"
+
+    def hi(t, c):
+        return f'<tspan fill="{c}" fill-opacity="1" font-weight="700">{t}</tspan>'
+
+    text = (f'<rect x="36" y="62" width="568" height="72" rx="10" fill="#ffffff" fill-opacity=".04" stroke="#ffffff" stroke-opacity=".08"/>'
+            f'<text x="52" y="92" class="sans" font-size="15" fill="#ffffff" fill-opacity=".75">"I study {hi("7 hours", am)} a day, mostly {hi("on my bed", rose)} with the</text>'
+            f'<text x="52" y="116" class="sans" font-size="15" fill="#ffffff" fill-opacity=".75">{hi("laptop on my knees", rose)}, and take a break {hi("every 2 hours", cy)}."</text>')
+    chips = ""
+    x = 36
+    for lab, col in [("hours=7", am), ("surface=bed", rose), ("screen=lap", rose), ("breaks=120min", cy)]:
+        w = len(lab) * 7.4 + 20
+        chips += (f'<rect x="{x:.0f}" y="146" width="{w:.0f}" height="24" rx="12" fill="{col}" fill-opacity=".14" stroke="{col}" stroke-opacity=".5"/>'
+                  f'<text x="{x + w / 2:.0f}" y="162" text-anchor="middle" class="mono" font-size="11.5" fill="{col}">{lab}</text>')
+        x += w + 8
+    risks = [("back pain", .74), ("neck strain", .66), ("eye strain", .58), ("headache", .41),
+             ("wrist pain", .33), ("finger numb.", .18), ("overall", .61)]
+    bars = ""
+    for k, (name, p) in enumerate(risks):
+        col = rose if p >= .6 else (am if p >= .4 else lime)
+        y = 196 + k * 20
+        bars += (f'<text x="36" y="{y + 8}" class="mono" font-size="11.5" fill="#ffffff" fill-opacity=".65">{name}</text>'
+                 f'<rect x="140" y="{y}" width="200" height="9" rx="4.5" fill="#ffffff" fill-opacity=".07"/>'
+                 f'<rect x="140" y="{y}" width="{200 * p:.0f}" height="9" rx="4.5" fill="{col}">'
+                 f'<animate attributeName="width" values="0;{200 * p:.0f}" dur="1.6s"/></rect>'
+                 f'<text x="352" y="{y + 8}" class="mono" font-size="11.5" fill="{col}">{p:.2f}</text>')
+    rec = f'<rect x="404" y="188" width="200" height="146" rx="10" fill="#0a120f" stroke="{lime}" stroke-opacity=".35"/>' \
+          f'<text x="420" y="212" class="mono" font-size="12" fill="{lime}">what to change</text>'
+    for k, (tip, d) in enumerate([("Work at a desk", "−0.21"), ("Break every 45 min", "−0.12"), ("Raise the screen", "−0.09")]):
+        y = 242 + k * 26
+        rec += (f'<text x="420" y="{y}" class="sans" font-size="13" fill="#ffffff" fill-opacity=".85">{tip}</text>'
+                f'<text x="588" y="{y}" text-anchor="end" class="mono" font-size="12" fill="{lime}">{d}</text>')
+    rec += '<text x="420" y="320" class="mono" font-size="10.5" fill="#ffffff" fill-opacity=".4">change in back-pain risk</text>'
+    cover("somatrack", "habits → risk → what to change", "#0a1512", "#10201b", lime, text + chips + bars + rec, "EN · FR · AR")
+
+
+def jerd():
+    am, cy, lime, rose = "#fbbf24", "#22d3ee", "#a3e635", "#fb7185"
+    rnd = random.Random(6)
+    # barcode in a scan frame with a sweeping laser
+    bc = ""
+    x = 66
+    while x < 266:
+        w = rnd.choice([2, 2, 3, 4, 6])
+        bc += f'<rect x="{x}" y="96" width="{w}" height="106" fill="#ffffff" fill-opacity=".88"/>'
+        x += w + rnd.choice([2, 3, 4])
+    frame = (f'<rect x="44" y="70" width="248" height="170" rx="14" fill="#0b0a07" stroke="#ffffff" stroke-opacity=".08"/>' + bc +
+             f'<text x="168" y="224" text-anchor="middle" class="mono" font-size="12" fill="#ffffff" fill-opacity=".7">6 130274 019835</text>'
+             f'<path d="M56 96 V82 H70 M266 82 H280 V96 M280 214 V228 H266 M70 228 H56 V214" fill="none" stroke="{am}" stroke-width="3" stroke-linecap="round"/>'
+             f'<rect x="56" y="150" width="224" height="2.5" fill="{rose}">'
+             f'<animate attributeName="y" values="92;206;92" dur="2.6s" repeatCount="indefinite"/></rect>')
+    # stock ledger
+    led = '<text x="324" y="84" class="mono" font-size="12" fill="#ffffff" fill-opacity=".55">Semolina 1 kg · movements</text>'
+    moves = [("+12", "received", lime, "09:10"), ("−1", "sold", rose, "10:42"), ("−3", "sold", rose, "12:05"),
+             ("−1", "count fix", am, "14:30")]
+    for k, (q, why, col, t) in enumerate(moves):
+        y = 112 + k * 30
+        led += (f'<text x="324" y="{y}" class="mono" font-size="14" font-weight="700" fill="{col}">{q}</text>'
+                f'<text x="370" y="{y}" class="sans" font-size="13" fill="#ffffff" fill-opacity=".8">{why}</text>'
+                f'<text x="604" y="{y}" text-anchor="end" class="mono" font-size="11" fill="#ffffff" fill-opacity=".4">{t}</text>'
+                f'<line x1="324" x2="604" y1="{y + 11}" y2="{y + 11}" stroke="#ffffff" stroke-opacity=".06"/>')
+    led += (f'<text x="324" y="258" class="mono" font-size="12" fill="#ffffff" fill-opacity=".55">on hand</text>'
+            f'<text x="604" y="262" text-anchor="end" class="sans" font-size="30" font-weight="800" fill="#ffffff">7</text>'
+            f'<rect x="324" y="272" width="280" height="6" rx="3" fill="#ffffff" fill-opacity=".07"/>'
+            f'<rect x="324" y="272" width="98" height="6" rx="3" fill="{am}"/>'
+            f'<line x1="436" x2="436" y1="267" y2="283" stroke="#ffffff" stroke-opacity=".6" stroke-width="1.5"/>'
+            f'<text x="436" y="298" text-anchor="middle" class="mono" font-size="10.5" fill="{am}">reorder at 8</text>')
+    sync = (f'<rect x="44" y="262" width="248" height="58" rx="12" fill="#ffffff" fill-opacity=".04" stroke="{cy}" stroke-opacity=".3"/>'
+            f'<g transform="translate(70 291)"><g>'
+            f'<path d="M-9 -2 A9 9 0 0 1 7 -6 M9 2 A9 9 0 0 1 -7 6" fill="none" stroke="{cy}" stroke-width="2.2" stroke-linecap="round"/>'
+            f'<path d="M3 -10 L7 -6 L2 -3 M-3 10 L-7 6 L-2 3" fill="none" stroke="{cy}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>'
+            f'<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="3s" repeatCount="indefinite"/></g></g>'
+            f'<text x="94" y="287" class="sans" font-size="13" font-weight="700" fill="#ffffff">3 movements queued</text>'
+            f'<text x="94" y="305" class="mono" font-size="11" fill="#ffffff" fill-opacity=".5">no signal · syncs when online</text>')
+    cover("jerd", "Jerd · stock count", "#14110a", "#1e190d", am, frame + led + sync, "offline-first")
+
+
 for mode in ("dark", "light"):
     write(f"banner-{mode}.svg", banner(mode))
     for slug, num, title, acc in [("work", "01", "Selected work", "cyan"), ("toolbox", "02", "Toolbox", "violet"),
                                   ("activity", "03", "Activity", "lime"), ("hello", "04", "Say hello.", "amber")]:
         write(f"h-{slug}-{mode}.svg", header(mode, num, title, acc))
 
-fpl(); drone(); ser(); plag(); rag(); amc(); cadence(); streamline()
+fpl(); drone(); ser(); rag(); cadence(); streamline()
+eo_bench(); savepoint(); lumen(); mytube(); somatrack(); jerd()
 print("ok")

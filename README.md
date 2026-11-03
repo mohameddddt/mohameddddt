@@ -35,7 +35,7 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
       <h3>Drone Delivery Optimization</h3>
       Routes drones whose battery drain depends on the weight still on board: exact Branch &amp; Bound, GA / SA / ALNS, detours around no-fly zones, and a planner that replays the flight.
       <p><sub><b>624 tests</b>, 74 published CVRPLIB optima reproduced exactly · Python</sub></p>
-      <a href="https://github.com/mohameddddt/Drone-Based-Delivery-Optimization-Problem">Code</a>
+      <a href="https://mohameddddt.github.io/Drone-Based-Delivery-Optimization-Problem/">Live</a> · <a href="https://github.com/mohameddddt/Drone-Based-Delivery-Optimization-Problem">Code</a>
     </td>
   </tr>
   <tr>
@@ -44,14 +44,46 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
       <h3>Speech Emotion Recognition</h3>
       Hears which of six emotions a spoken sentence carries, tested on voices the model never trained on. Hand-crafted acoustic features against a frozen WavLM encoder.
       <p><sub><b>74% accuracy</b> speaker-independent, vs 53% for the classical ensemble and 17% chance · PyTorch</sub></p>
-      <a href="https://github.com/mohameddddt/Speech-Emotion-Recognition">Code</a> · <a href="https://colab.research.google.com/github/mohameddddt/Speech-Emotion-Recognition/blob/main/embeddings_colab.ipynb">Colab</a>
+      <a href="https://emotion-speach-recognition.netlify.app">Live</a> · <a href="https://github.com/mohameddddt/Speech-Emotion-Recognition">Code</a> · <a href="https://colab.research.google.com/github/mohameddddt/Speech-Emotion-Recognition/blob/main/embeddings_colab.ipynb">Colab</a>
     </td>
     <td width="50%" valign="top">
-      <a href="https://github.com/mohameddddt/PlagiarismDetectionSystem"><img alt="Plagiarism Detection System" src="assets/work/plagiarism.svg" width="100%"></a>
-      <h3>Plagiarism Detection System</h3>
-      Flags likely plagiarism passage by passage in CS and engineering writing, shows the source behind every flag, and never presents a score as proof.
-      <p><sub>BM25 retrieval, passage alignment, paraphrase scoring · Python · spaCy · FastAPI</sub></p>
-      <a href="https://github.com/mohameddddt/PlagiarismDetectionSystem">Code</a>
+      <a href="https://mohameddddt.github.io/eo-benchmark-hub/"><img alt="EO-Bench Hub" src="assets/work/eo-bench.svg" width="100%"></a>
+      <h3>EO-Bench Hub</h3>
+      Benchmarks Earth-observation models on hidden test splits across five datasets, with confidence intervals, robustness under sensor and haze corruptions, calibration and speed.
+      <p><sub><b>Clean accuracy ties, robustness spreads 25 points</b> · PyTorch · FastAPI · React</sub></p>
+      <a href="https://mohameddddt.github.io/eo-benchmark-hub/">Live</a> · <a href="https://github.com/mohameddddt/eo-benchmark-hub">Code</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://mohameddddt.github.io/Streamline/"><img alt="Streamline" src="assets/work/streamline.svg" width="100%"></a>
+      <h3>Streamline</h3>
+      A movie and TV streamer for Windows and the web that speaks the Stremio addon protocol: smart source picking, next-episode autoplay, and Trakt / Simkl sync.
+      <p><sub>Electron · React · TypeScript · WebTorrent</sub></p>
+      <a href="https://mohameddddt.github.io/Streamline/">Live</a> · <a href="https://github.com/mohameddddt/Streamline">Code</a>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/mohameddddt/Cadence"><img alt="Cadence" src="assets/work/cadence.svg" width="100%"></a>
+      <h3>Cadence</h3>
+      An Android music player and library manager: gapless local playback, fingerprint tagging with AcoustID and MusicBrainz, cover art, synced lyrics and scrobbling.
+      <p><sub>Flutter · Kotlin plugins</sub></p>
+      <a href="https://github.com/mohameddddt/Cadence">Code</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/mohameddddt/savepoint"><img alt="Savepoint" src="assets/work/savepoint.svg" width="100%"></a>
+      <h3>Savepoint</h3>
+      A private game diary for Android: library, reviews, play-session timer, yearly goals and deep stats, with IGDB covers and Xbox history import.
+      <p><sub>Flutter · SQLite · IGDB API</sub></p>
+      <a href="https://github.com/mohameddddt/savepoint">Code</a>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/mohameddddt/Lumen"><img alt="Lumen" src="assets/work/lumen.svg" width="100%"></a>
+      <h3>Lumen</h3>
+      A calm, fast, offline gallery for Android with an editorial look: a pinch-to-resize timeline, custom albums, fingerprint-locked hidden folders and six palettes.
+      <p><sub>Kotlin · Jetpack Compose</sub></p>
+      <a href="https://github.com/mohameddddt/Lumen/releases/latest">Download</a> · <a href="https://github.com/mohameddddt/Lumen">Code</a>
     </td>
   </tr>
   <tr>
@@ -63,32 +95,30 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
       <a href="https://github.com/mohameddddt/Medical-literature-RAG-system">Code</a>
     </td>
     <td width="50%" valign="top">
-      <a href="https://github.com/mohameddddt/amc-wireless-communication"><img alt="Automatic Modulation Classification" src="assets/work/amc.svg" width="100%"></a>
-      <h3>Automatic Modulation Classification</h3>
-      Tells which of 11 modulation schemes a radio signal uses from raw I/Q samples, from a VT-CNN2 baseline to stronger deep models, on a leakage-free split.
-      <p><sub>RadioML 2016.10A · PyTorch · Kaggle GPUs</sub></p>
-      <a href="https://github.com/mohameddddt/amc-wireless-communication">Code</a>
+      <a href="https://somatrack-audit-web.onrender.com"><img alt="SomaTrack" src="assets/work/somatrack.svg" width="100%"></a>
+      <h3>SomaTrack</h3>
+      Turns a student's own description of their study habits into risk estimates for seven aches and strains, then suggests the changes that would lower them.
+      <p><sub>Seven per-target models · English, French, Arabic · FastAPI · React</sub></p>
+      <a href="https://somatrack-audit-web.onrender.com">Live</a> · <a href="https://github.com/mohameddddt/SomaTrack-Predicting-Study-Related-Physical-Ailments">Code</a>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <a href="https://github.com/mohameddddt/Cadence"><img alt="Cadence" src="assets/work/cadence.svg" width="100%"></a>
-      <h3>Cadence</h3>
-      An Android music player and library manager: gapless local playback, fingerprint tagging with AcoustID and MusicBrainz, cover art, synced lyrics and scrobbling.
-      <p><sub>Flutter · Kotlin plugins</sub></p>
-      <a href="https://github.com/mohameddddt/Cadence">Code</a>
+      <a href="https://github.com/mohameddddt/mytube-invidious"><img alt="My Tube" src="assets/work/mytube.svg" width="100%"></a>
+      <h3>My Tube</h3>
+      A self-hosted YouTube interface for Windows: Invidious in WSL2 under a light web app for search, account-free subscriptions and video or playlist downloads.
+      <p><sub>Python standard library · vanilla JS · Docker · yt-dlp</sub></p>
+      <a href="https://github.com/mohameddddt/mytube-invidious">Code</a>
     </td>
     <td width="50%" valign="top">
-      <a href="https://github.com/mohameddddt/Streamline"><img alt="Streamline" src="assets/work/streamline.svg" width="100%"></a>
-      <h3>Streamline</h3>
-      A desktop movie and TV player that speaks the Stremio addon protocol and starts playback long before a download finishes.
-      <p><sub>Electron · React · TypeScript</sub></p>
-      <a href="https://github.com/mohameddddt/Streamline">Code</a>
+      <a href="https://github.com/mohameddddt/Jerd"><img alt="Jerd" src="assets/work/jerd.svg" width="100%"></a>
+      <h3>Jerd</h3>
+      Offline-first stock control for a small shop: scan a barcode, log what came in or sold, and sync with the server when there is signal again.
+      <p><sub>Flutter · SQLite · Flask · push notifications</sub></p>
+      <a href="https://github.com/mohameddddt/Jerd">Code</a>
     </td>
   </tr>
 </table>
-
-<sub>Also: <a href="https://github.com/mohameddddt/eo-benchmark-hub">EO-Benchmark Hub</a>, a leaderboard for Earth-observation models · <a href="https://github.com/mohameddddt/Jerd">Jerd</a>, offline-first stock control for a small shop · <a href="https://github.com/mohameddddt/SomaTrack-Predicting-Study-Related-Physical-Ailments">SomaTrack</a>, predicting study-related aches from students' habits</sub>
 
 <br><br>
 
