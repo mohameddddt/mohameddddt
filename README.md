@@ -127,27 +127,10 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
   <img alt="Toolbox" src="assets/h-toolbox-light.svg" height="40">
 </picture>
 
-<p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=py,ts,js,dart,kotlin,java,c,cpp,bash,pytorch,sklearn&perline=11&theme=dark">
-    <img alt="Python, TypeScript, JavaScript, Dart, Kotlin, Java, C, C++, Bash, PyTorch, scikit-learn" src="https://skillicons.dev/icons?i=py,ts,js,dart,kotlin,java,c,cpp,bash,pytorch,sklearn&perline=11&theme=light">
-  </picture>
-  <br>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=tensorflow,react,nextjs,tailwind,vite,electron,flutter,nodejs,express,fastapi,flask&perline=11&theme=dark">
-    <img alt="TensorFlow Lite, React, Next.js, Tailwind CSS, Vite, Electron, Flutter, Node.js, Express, FastAPI, Flask" src="https://skillicons.dev/icons?i=tensorflow,react,nextjs,tailwind,vite,electron,flutter,nodejs,express,fastapi,flask&perline=11&theme=light">
-  </picture>
-  <br>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=postgres,sqlite,redis,supabase,firebase,vercel,docker,githubactions,linux,git&perline=11&theme=dark">
-    <img alt="PostgreSQL, SQLite, Redis, Supabase, Firebase, Vercel, Docker, GitHub Actions, Linux, Git" src="https://skillicons.dev/icons?i=postgres,sqlite,redis,supabase,firebase,vercel,docker,githubactions,linux,git&perline=11&theme=light">
-  </picture>
-</p>
-
 <a href="https://mohameddddt.github.io/">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-dark.svg">
-    <img alt="85 tools and techniques from my portfolio projects, in 11 areas: languages, machine learning, LLMs and retrieval, optimization, backend and APIs, web and desktop, mobile, data and cloud, media, quality and DevOps, and domains. Each shows how many projects use it." src="assets/toolbox-light.svg" width="100%">
+    <img alt="Python, Dart, TypeScript, JavaScript, SQL, Kotlin, Java, scikit-learn, NumPy, Jupyter, PyTorch, pandas, Matplotlib, XGBoost, Hugging Face Transformers, ensembles, LightGBM, WavLM, MedCPT, MobileNetV3, TensorFlow Lite, librosa, SciPy, Gemini API, RAG, embeddings, pgvector, integer programming, PuLP, Branch and Bound, genetic algorithms, simulated annealing, ALNS, dynamic programming, FastAPI, JWT, Flask, Node.js, Express, SQLAlchemy, Gunicorn, Celery, React, Vite, Next.js, Tailwind CSS, TanStack Query, MapLibre, Electron, Flutter, SQLite, BLoC, Firebase Cloud Messaging, Jetpack Compose, Material 3, Coil, DataStore, Provider, GetIt, Hive, PostgreSQL, Supabase, Render, Vercel, PostGIS, Redis, Kaggle, FFmpeg, yt-dlp, ExoPlayer, WebTorrent, Invidious, Chromaprint, GitHub Actions, Docker, pytest, Sentry, Playwright, PyInstaller, computer vision, NLP, audio, geospatial, sports analytics, security, C, C++, Bash, Linux, Git" src="assets/toolbox-light.svg" width="100%">
   </picture>
 </a>
 
