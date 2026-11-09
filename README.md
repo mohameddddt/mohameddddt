@@ -127,11 +127,11 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
       <a href="https://github.com/mohameddddt/feather-pdf/releases/latest">Download</a> · <a href="https://github.com/mohameddddt/feather-pdf">Code</a>
     </td>
     <td width="50%" valign="top">
-      <a href="https://mohameddddt.github.io/work/almanac/"><img alt="Almanac" src="assets/work/almanac.svg" width="100%"></a>
+      <a href="https://github.com/mohameddddt/almanac"><img alt="Almanac" src="assets/work/almanac.svg" width="100%"></a>
       <h3>Almanac</h3>
-      The whole day on one page for Android: a calendar, alarms with snooze, a timer and world clocks, tasks with priorities, and daily rituals with streaks, all offline.
-      <p><sub>Kotlin · Jetpack Compose · Material 3</sub></p>
-      <a href="https://mohameddddt.github.io/work/almanac/">Screens</a>
+      The whole day on one page for Android, set like a newspaper: a calendar, real alarms, a timer and world clocks, tasks with priorities, and daily rituals with streaks. No network access at all.
+      <p><sub><b>2 MB</b> APK · Kotlin · Jetpack Compose</sub></p>
+      <a href="https://github.com/mohameddddt/almanac/releases/latest">Download</a> · <a href="https://github.com/mohameddddt/almanac">Code</a>
     </td>
   </tr>
 </table>

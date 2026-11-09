@@ -569,44 +569,55 @@ def feather_pdf():
 
 
 def almanac():
-    paper, ink, red, gold = "#f3ece0", "#211d18", "#c2553b", "#c79a2c"
-    serif = "Georgia, 'Times New Roman', serif"
-    # the Today page as a paper card
-    day = (f'<rect x="36" y="64" width="268" height="262" rx="18" fill="{paper}"/>'
-           f'<text x="56" y="94" class="mono" font-size="10" letter-spacing="2" fill="{red}">QUIET HOURS</text>'
-           f'<text x="56" y="132" font-family="{serif}" font-size="36" font-weight="700" fill="{ink}">Monday</text>'
-           f'<text x="56" y="152" class="sans" font-size="11.5" fill="{ink}" fill-opacity=".55">9 November · week 46</text>'
-           f'<text x="56" y="214" font-family="{serif}" font-size="54" font-weight="700" fill="{ink}">09:41</text>'
-           f'<text x="226" y="214" font-family="{serif}" font-size="20" fill="{gold}">30</text>')
-    for k, (label, p, col) in enumerate([("DAY", .4, red), ("WEEK", .08, "#6b8f71"), ("YEAR", .85, gold)]):
-        x = 56 + k * 80
-        day += (f'<text x="{x}" y="244" class="mono" font-size="8.5" letter-spacing="1" fill="{ink}" fill-opacity=".55">{label}</text>'
-                f'<rect x="{x}" y="252" width="68" height="4" rx="2" fill="{ink}" fill-opacity=".1"/>'
-                f'<rect x="{x}" y="252" width="{68 * p:.0f}" height="4" rx="2" fill="{col}"/>')
-    for k, (name, col, done) in enumerate([("Read", red, True), ("Walk", "#6b8f71", False), ("Water", gold, True)]):
-        x = 56 + k * 80
-        day += (f'<rect x="{x}" y="276" width="70" height="26" rx="13" fill="{col if done else "none"}" stroke="{col}" stroke-opacity=".7"/>'
-                f'<text x="{x + 35}" y="293" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="{paper if done else ink}">{name}</text>')
-    # a month grid with marked days
-    cal = (f'<text x="330" y="88" font-family="{serif}" font-size="22" font-weight="700" fill="{paper}">November</text>'
-           f'<text x="604" y="88" text-anchor="end" class="mono" font-size="11" fill="{paper}" fill-opacity=".5">2026</text>')
+    # the app's "print edition": uncoated paper, black ink and one signal red, in condensed type
+    paper, ink, red, blue = "#f2f0eb", "#111111", "#e2401b", "#2f4fd0"
+    cond = "'IBM Plex Sans Condensed', 'Roboto Condensed', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif"
+    # the Today page as a printed sheet
+    day = (f'<rect x="36" y="64" width="268" height="262" rx="4" fill="{paper}"/>'
+           f'<text x="52" y="88" class="mono" font-size="9.5" letter-spacing="1" fill="{ink}">ALMANAC <tspan fill-opacity=".5">NO. 313 · 2026</tspan></text>'
+           f'<path d="M52 96H288M52 99.5H288" stroke="{ink}" stroke-width="1.2"/>'
+           f'<text x="52" y="136" font-family="{cond}" font-stretch="condensed" font-size="36" font-weight="700" fill="{ink}">MONDAY</text>'
+           f'<text x="52" y="154" class="sans" font-size="10.5" fill="{ink}" fill-opacity=".65">9 November 2026 · Week 46</text>'
+           f'<text x="50" y="214" font-family="{cond}" font-stretch="condensed" font-size="58" font-weight="700" fill="{ink}">09:41</text>'
+           f'<text x="212" y="180" font-family="{cond}" font-size="15" fill="{red}">30</text>'
+           f'<text x="288" y="180" text-anchor="end" class="mono" font-size="8.5" letter-spacing="1" fill="{ink}">MORNING</text>')
+    for k, (label, p, col) in enumerate([("DAY", .4, red), ("WEEK", .1, ink), ("YEAR", .85, ink)]):
+        y = 236 + k * 13
+        day += (f'<text x="52" y="{y + 3}" class="mono" font-size="8" letter-spacing="1" fill="{ink}">{label}</text>'
+                f'<rect x="88" y="{y}" width="166" height="1.6" fill="{ink}" fill-opacity=".15"/>'
+                f'<rect x="88" y="{y - .4}" width="{166 * p:.0f}" height="2.4" fill="{col}"/>'
+                f'<text x="288" y="{y + 3}" text-anchor="end" class="mono" font-size="8" fill="{ink}">{p * 100:.0f}%</text>')
+    # condition, 1 to 5, shown as ink density
+    day += f'<text x="52" y="292" class="mono" font-size="8" letter-spacing="1" fill="{ink}"><tspan fill="{red}">02</tspan>  CONDITION</text>'
+    for k, op in enumerate([.12, .3, .5, .75, 0]):
+        x = 52 + k * 47.6
+        day += (f'<rect x="{x}" y="298" width="42" height="18" fill="{ink}" fill-opacity="{op}" stroke="{ink}" stroke-width="{1.6 if k == 3 else .8}"/>'
+                f'<text x="{x + 4}" y="312" class="mono" font-size="8" fill="{paper if k == 3 else ink}">{k + 1}</text>')
+    # the month grid
+    cal = (f'<text x="330" y="94" font-family="{cond}" font-stretch="condensed" font-size="28" font-weight="700" fill="{paper}">NOVEMBER</text>'
+           f'<text x="604" y="94" text-anchor="end" class="mono" font-size="11" fill="{paper}" fill-opacity=".5">2026</text>'
+           f'<path d="M330 104H606" stroke="{paper}" stroke-opacity=".5"/>')
+    for c, d in enumerate("MTWTFSS"):
+        cal += f'<text x="{348 + c * 38}" y="120" text-anchor="middle" class="mono" font-size="9" fill="{red if c >= 5 else paper}" fill-opacity="{1 if c >= 5 else .55}">{d}</text>'
     start = 6  # 1 November 2026 is a Sunday
     for i in range(30):
         cell = start + i
-        x, y = 342 + (cell % 7) * 38, 116 + (cell // 7) * 34
+        x, y = 348 + (cell % 7) * 38, 142 + (cell // 7) * 28
         if i + 1 == 9:
-            cal += (f'<rect x="{x - 15}" y="{y - 16}" width="30" height="30" rx="8" fill="{paper}"/>'
-                    f'<text x="{x}" y="{y + 4}" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="{ink}">9</text>')
+            cal += (f'<rect x="{x - 13}" y="{y - 14}" width="26" height="24" fill="{red}"/>'
+                    f'<text x="{x}" y="{y + 3}" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="{paper}">9</text>')
         else:
-            cal += f'<text x="{x}" y="{y + 4}" text-anchor="middle" class="sans" font-size="12" fill="{paper}" fill-opacity="{.85 if (cell % 7) < 5 else .5}">{i + 1}</text>'
-        if i + 1 in (11, 17, 24):
-            cal += f'<circle cx="{x}" cy="{y + 12}" r="2.4" fill="{gold if i + 1 == 24 else red}"/>'
+            cal += f'<text x="{x}" y="{y + 3}" text-anchor="middle" class="mono" font-size="11" fill="{paper}" fill-opacity="{.85 if (cell % 7) < 5 else .45}">{i + 1}</text>'
+        if i + 1 == 11:  # an event
+            cal += f'<rect x="{x - 9}" y="{y + 8}" width="18" height="2" fill="{blue}"/>'
+        if i + 1 == 24:  # full moon
+            cal += f'<circle cx="{x + 11}" cy="{y - 6}" r="3" fill="none" stroke="{paper}" stroke-width="1.2"/>'
     # an alarm that rings
-    cal += (f'<rect x="330" y="296" width="276" height="30" rx="15" fill="{paper}" fill-opacity=".08" stroke="{paper}" stroke-opacity=".15"/>'
-            f'<g transform="translate(350 311)"><path d="M-6 3V-1A6 6 0 0 1 6 -1V3L8 5H-8Z M-2 7H2" fill="none" stroke="{gold}" stroke-width="1.8" stroke-linejoin="round">'
+    cal += (f'<path d="M330 290H606" stroke="{paper}" stroke-opacity=".25"/>'
+            f'<g transform="translate(340 311)"><path d="M-6 3V-1A6 6 0 0 1 6 -1V3L8 5H-8Z M-2 7H2" fill="none" stroke="{red}" stroke-width="1.8" stroke-linejoin="round">'
             f'<animateTransform attributeName="transform" type="rotate" values="0;14;-14;10;-10;0;0" dur="2.4s" repeatCount="indefinite"/></path></g>'
-            f'<text x="366" y="315" class="mono" font-size="11" fill="{paper}" fill-opacity=".8">07:00 · weekdays · snooze 10 min</text>')
-    cover("almanac", "Almanac · day planner", "#161310", "#221d17", gold, day + cal, "Compose")
+            f'<text x="356" y="315" class="mono" font-size="11" fill="{paper}" fill-opacity=".8">07:00 · weekdays · snooze 10 min</text>')
+    cover("almanac", "Almanac · print edition", "#121212", "#1c1b19", red, day + cal, "Compose")
 
 
 def somatrack():
