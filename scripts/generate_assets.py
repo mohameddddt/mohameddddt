@@ -526,8 +526,87 @@ def mytube():
                f'<rect x="424" y="{y + 14}" width="176" height="4" rx="2" fill="#ffffff" fill-opacity=".08"/>')
         if p:
             dl += f'<rect x="424" y="{y + 14}" width="{176 * p:.0f}" height="4" rx="2" fill="{col}"/>'
-    dl += '<text x="412" y="320" class="mono" font-size="11" fill="#ffffff" fill-opacity=".45">127.0.0.1 only · stdlib backend</text>'
+    dl += '<text x="412" y="320" class="mono" font-size="11" fill="#ffffff" fill-opacity=".45">127.0.0.1 only · 1.3 MB Rust exe</text>'
     cover("mytube", "localhost:8080 · My Tube", "#120b10", "#1d1119", rose, player + dl, "0 MB idle")
+
+
+def feather_pdf():
+    teal, paper = "#2dd4bf", "#f5f5f4"
+    # a reader window: contents sidebar on the left, a page with highlighted matches on the right
+    win = (f'<rect x="36" y="64" width="360" height="262" rx="12" fill="#0b1211" stroke="#ffffff" stroke-opacity=".08"/>'
+           f'<rect x="36" y="64" width="360" height="30" rx="12" fill="#ffffff" fill-opacity=".04"/>'
+           f'<rect x="250" y="72" width="128" height="15" rx="7.5" fill="#ffffff" fill-opacity=".06" stroke="{teal}" stroke-opacity=".5"/>'
+           f'<text x="260" y="83" class="mono" font-size="9.5" fill="{teal}">match · 3 of 12</text>'
+           f'<text x="50" y="84" class="mono" font-size="10" fill="#ffffff" fill-opacity=".55">p. 214 / 541 · 110%</text>')
+    toc = ["Contents", "1  Reading", "2  Finding", "3  Copying", "4  Light"]
+    for k, item in enumerate(toc):
+        win += (f'<rect x="44" y="{106 + k * 26}" width="92" height="20" rx="5" fill="{teal}" fill-opacity="{.16 if k == 2 else 0}"/>'
+                f'<text x="52" y="{120 + k * 26}" class="sans" font-size="11" fill="#ffffff" fill-opacity="{.85 if k in (0, 2) else .5}">{item}</text>')
+    win += f'<rect x="148" y="104" width="236" height="210" rx="4" fill="{paper}"/>'
+    rnd = random.Random(3)
+    for r in range(13):
+        y = 120 + r * 14.5
+        w = 200 if r % 5 != 4 else 120
+        win += f'<rect x="162" y="{y:.1f}" width="{w}" height="5" rx="2.5" fill="#1c1917" fill-opacity=".28"/>'
+        if r in (2, 7, 10):
+            x = 170 + rnd.random() * 110
+            win += (f'<rect x="{x:.0f}" y="{y - 3:.1f}" width="34" height="11" rx="2" fill="{"#fb923c" if r == 7 else "#facc15"}" fill-opacity=".85">'
+                    f'<animate attributeName="fill-opacity" values=".85;.35;.85" dur="2.6s" begin="{r * .2:.1f}s" repeatCount="indefinite"/></rect>')
+    # memory with a 541-page textbook, from the README
+    mem = '<text x="420" y="84" class="mono" font-size="12" fill="#ffffff" fill-opacity=".55">memory · 541-page book</text>'
+    for k, (label, mb, col, prefix) in enumerate([("after opening", 16, teal, "≈ "), ("page cache budget", 32, "#5eead4", ""),
+                                                   ("while reading", 70, "#99f6e4", "&lt; ")]):
+        y = 108 + k * 58
+        w = 182 * mb / 70
+        mem += (f'<text x="420" y="{y}" class="sans" font-size="12.5" fill="#ffffff" fill-opacity=".85">{label}</text>'
+                f'<text x="602" y="{y}" text-anchor="end" class="mono" font-size="11" fill="{col}">{prefix}{mb} MB</text>'
+                f'<rect x="420" y="{y + 10}" width="182" height="8" rx="4" fill="#ffffff" fill-opacity=".07"/>'
+                f'<rect x="420" y="{y + 10}" width="{w:.0f}" height="8" rx="4" fill="{col}">'
+                f'<animate attributeName="width" values="0;{w:.0f}" dur="1.6s"/></rect>')
+    mem += ('<text x="420" y="300" class="mono" font-size="11" fill="#ffffff" fill-opacity=".45">only visible pages rendered</text>'
+            '<text x="420" y="318" class="mono" font-size="11" fill="#ffffff" fill-opacity=".45">0.8 MB exe · Win32 + GDI</text>')
+    cover("feather-pdf", "Feather PDF · reader", "#0a1312", "#10201d", teal, win + mem, "16 MB")
+
+
+def almanac():
+    paper, ink, red, gold = "#f3ece0", "#211d18", "#c2553b", "#c79a2c"
+    serif = "Georgia, 'Times New Roman', serif"
+    # the Today page as a paper card
+    day = (f'<rect x="36" y="64" width="268" height="262" rx="18" fill="{paper}"/>'
+           f'<text x="56" y="94" class="mono" font-size="10" letter-spacing="2" fill="{red}">QUIET HOURS</text>'
+           f'<text x="56" y="132" font-family="{serif}" font-size="36" font-weight="700" fill="{ink}">Monday</text>'
+           f'<text x="56" y="152" class="sans" font-size="11.5" fill="{ink}" fill-opacity=".55">9 November · week 46</text>'
+           f'<text x="56" y="214" font-family="{serif}" font-size="54" font-weight="700" fill="{ink}">09:41</text>'
+           f'<text x="226" y="214" font-family="{serif}" font-size="20" fill="{gold}">30</text>')
+    for k, (label, p, col) in enumerate([("DAY", .4, red), ("WEEK", .08, "#6b8f71"), ("YEAR", .85, gold)]):
+        x = 56 + k * 80
+        day += (f'<text x="{x}" y="244" class="mono" font-size="8.5" letter-spacing="1" fill="{ink}" fill-opacity=".55">{label}</text>'
+                f'<rect x="{x}" y="252" width="68" height="4" rx="2" fill="{ink}" fill-opacity=".1"/>'
+                f'<rect x="{x}" y="252" width="{68 * p:.0f}" height="4" rx="2" fill="{col}"/>')
+    for k, (name, col, done) in enumerate([("Read", red, True), ("Walk", "#6b8f71", False), ("Water", gold, True)]):
+        x = 56 + k * 80
+        day += (f'<rect x="{x}" y="276" width="70" height="26" rx="13" fill="{col if done else "none"}" stroke="{col}" stroke-opacity=".7"/>'
+                f'<text x="{x + 35}" y="293" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="{paper if done else ink}">{name}</text>')
+    # a month grid with marked days
+    cal = (f'<text x="330" y="88" font-family="{serif}" font-size="22" font-weight="700" fill="{paper}">November</text>'
+           f'<text x="604" y="88" text-anchor="end" class="mono" font-size="11" fill="{paper}" fill-opacity=".5">2026</text>')
+    start = 6  # 1 November 2026 is a Sunday
+    for i in range(30):
+        cell = start + i
+        x, y = 342 + (cell % 7) * 38, 116 + (cell // 7) * 34
+        if i + 1 == 9:
+            cal += (f'<rect x="{x - 15}" y="{y - 16}" width="30" height="30" rx="8" fill="{paper}"/>'
+                    f'<text x="{x}" y="{y + 4}" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="{ink}">9</text>')
+        else:
+            cal += f'<text x="{x}" y="{y + 4}" text-anchor="middle" class="sans" font-size="12" fill="{paper}" fill-opacity="{.85 if (cell % 7) < 5 else .5}">{i + 1}</text>'
+        if i + 1 in (11, 17, 24):
+            cal += f'<circle cx="{x}" cy="{y + 12}" r="2.4" fill="{gold if i + 1 == 24 else red}"/>'
+    # an alarm that rings
+    cal += (f'<rect x="330" y="296" width="276" height="30" rx="15" fill="{paper}" fill-opacity=".08" stroke="{paper}" stroke-opacity=".15"/>'
+            f'<g transform="translate(350 311)"><path d="M-6 3V-1A6 6 0 0 1 6 -1V3L8 5H-8Z M-2 7H2" fill="none" stroke="{gold}" stroke-width="1.8" stroke-linejoin="round">'
+            f'<animateTransform attributeName="transform" type="rotate" values="0;14;-14;10;-10;0;0" dur="2.4s" repeatCount="indefinite"/></path></g>'
+            f'<text x="366" y="315" class="mono" font-size="11" fill="{paper}" fill-opacity=".8">07:00 · weekdays · snooze 10 min</text>')
+    cover("almanac", "Almanac · day planner", "#161310", "#221d17", gold, day + cal, "Compose")
 
 
 def somatrack():
@@ -615,5 +694,5 @@ for mode in ("dark", "light"):
         write(f"h-{slug}-{mode}.svg", header(mode, num, title, acc))
 
 fpl(); drone(); ser(); rag(); cadence(); streamline()
-eo_bench(); savepoint(); lumen(); mytube(); somatrack(); jerd()
+eo_bench(); savepoint(); lumen(); mytube(); somatrack(); jerd(); feather_pdf(); almanac()
 print("ok")

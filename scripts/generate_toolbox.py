@@ -30,7 +30,7 @@ THEMES = {
 SKILLS = [
     # Languages
     ("Python", "si:Python"), ("Dart", "si:Dart"), ("TypeScript", "si:TypeScript"), ("JavaScript", "si:JavaScript"),
-    ("SQL", "g:sql"), ("Kotlin", "si:Kotlin"), ("Java", "si:Java"),
+    ("SQL", "g:sql"), ("Kotlin", "si:Kotlin"), ("Rust", "si:Rust"), ("Java", "si:Java"),
     # Machine learning
     ("scikit-learn", "si:ScikitLearn|SciKitLearn"), ("NumPy", "simple:numpy"), ("Jupyter", "simple:jupyter"), ("PyTorch", "si:PyTorch"),
     ("pandas", "simple:pandas"), ("Matplotlib", "g:plot"), ("XGBoost", "g:tree"), ("Transformers", "simple:huggingface"),
@@ -47,6 +47,7 @@ SKILLS = [
     # Web & desktop
     ("React", "si:React"), ("Vite", "si:Vite"), ("Next.js", "si:NextJS"), ("Tailwind CSS", "si:TailwindCSS"),
     ("TanStack Query", "simple:reactquery"), ("MapLibre", "simple:maplibre"), ("Electron", "si:Electron"),
+    ("WebView2", "g:window"), ("Win32 API", "g:chip"),
     # Mobile
     ("Flutter", "si:Flutter"), ("SQLite", "si:SQLite"), ("BLoC", "g:bloc"), ("Firebase FCM", "si:Firebase"),
     ("Compose", "simple:jetpackcompose"), ("Material 3", "simple:materialdesign"), ("Coil", "g:image"),
@@ -56,10 +57,10 @@ SKILLS = [
     ("PostGIS", "g:map"), ("Redis", "si:Redis"), ("Kaggle", "simple:kaggle"),
     # Media
     ("FFmpeg", "simple:ffmpeg"), ("yt-dlp", "g:download"), ("ExoPlayer", "g:play"), ("WebTorrent", "g:magnet"),
-    ("Invidious", "simple:invidious"), ("Chromaprint", "g:fingerprint"),
+    ("Invidious", "simple:invidious"), ("Chromaprint", "g:fingerprint"), ("PDFium", "g:document"),
     # Quality & DevOps
     ("GitHub Actions", "si:GithubActions"), ("Docker", "si:Docker"), ("pytest", "simple:pytest"), ("Sentry", "si:Sentry"),
-    ("Playwright", "g:browsertest"), ("PyInstaller", "g:package"),
+    ("Playwright", "g:browsertest"),
     # Domains
     ("Computer vision", "si:OpenCV"), ("NLP", "g:chat"), ("Audio", "g:speaker"), ("Geospatial", "g:globe"),
     ("Sports analytics", "g:ball"), ("Security", "g:shield"),
@@ -310,9 +311,19 @@ def glyph(name, t):
         return (f'<rect x="44" y="58" width="168" height="140" rx="20" {S(ink, 11)}/><path d="M44 96H212" {S(ink, 11)}/>'
                 + "".join(f'<circle cx="{70 + k * 22}" cy="77" r="6" fill="{ink}"/>' for k in range(3))
                 + f'<path d="M92 148L118 172L166 124" {S(t["green"], 16)}/>')
-    if name == "package":
-        return (f'<path d="M128 46L204 86V170L128 210L52 170V86Z" fill="#3776ab"/>'
-                f'<path d="M52 86L128 126L204 86L128 46Z" fill="#ffd43b"/><path d="M128 126V210" stroke="#1e4f7a" stroke-width="8"/>')
+    if name == "window":  # an app window with a web page inside
+        return (f'<rect x="44" y="58" width="168" height="140" rx="20" {S(a, 11)}/><path d="M44 94H212" {S(a, 11)}/>'
+                f'<path d="M172 76H190" {S(a, 10)}/>'
+                f'<circle cx="128" cy="146" r="32" {S(b, 10)}/><ellipse cx="128" cy="146" rx="13" ry="32" {S(b, 8)}/>'
+                f'<path d="M96 146H160" {S(b, 8)}/>')
+    if name == "chip":
+        pins = "".join(f'M{x} 50V70M{x} 186V206M50 {x}H70M186 {x}H206' for x in (100, 128, 156))
+        return (f'<path d="{pins}" {S(ink, 10)} stroke-opacity=".5"/>'
+                f'<rect x="70" y="70" width="116" height="116" rx="18" fill-opacity=".14" {S(a, 11, fill=a)}/>'
+                f'<rect x="102" y="102" width="52" height="52" rx="8" fill="{a}"/>')
+    if name == "document":
+        return (f'<path d="M78 46H150L190 86V198A12 12 0 0 1 178 210H78A12 12 0 0 1 66 198V58A12 12 0 0 1 78 46Z" {S(e, 11)}/>'
+                f'<path d="M148 46V88H190" {S(e, 11)}/><path d="M92 124H164M92 152H164M92 180H138" {S(ink, 10)} stroke-opacity=".55"/>')
     if name == "chat":
         return (f'<path d="M60 64H196A14 14 0 0 1 210 78V158A14 14 0 0 1 196 172H118L80 204V172H60A14 14 0 0 1 46 158V78A14 14 0 0 1 60 64Z" {S(b, 12)}/>'
                 f'<path d="M80 102H176M80 134H148" {S(ink, 11)} stroke-opacity=".6"/>')

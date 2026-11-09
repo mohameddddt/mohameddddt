@@ -106,9 +106,9 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
     <td width="50%" valign="top">
       <a href="https://github.com/mohameddddt/mytube-invidious"><img alt="My Tube" src="assets/work/mytube.svg" width="100%"></a>
       <h3>My Tube</h3>
-      A self-hosted YouTube interface for Windows: Invidious in WSL2 under a light web app for search, account-free subscriptions and video or playlist downloads.
-      <p><sub>Python standard library · vanilla JS · Docker · yt-dlp</sub></p>
-      <a href="https://github.com/mohameddddt/mytube-invidious">Code</a>
+      A self-hosted YouTube interface for Windows: Invidious in WSL2 under a light web app for search, account-free subscriptions and video or playlist downloads, run by one Rust exe in a WebView2 window.
+      <p><sub><b>1.3 MB</b> single-file app, 0 MB while stopped · Rust · WebView2 · Docker · yt-dlp</sub></p>
+      <a href="https://github.com/mohameddddt/mytube-invidious/releases/latest">Download</a> · <a href="https://github.com/mohameddddt/mytube-invidious">Code</a>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/mohameddddt/Jerd"><img alt="Jerd" src="assets/work/jerd.svg" width="100%"></a>
@@ -116,6 +116,22 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
       Offline-first stock control for a small shop: scan a barcode, log what came in or sold, and sync with the server when there is signal again.
       <p><sub>Flutter · SQLite · Flask · push notifications</sub></p>
       <a href="https://github.com/mohameddddt/Jerd">Code</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/mohameddddt/feather-pdf"><img alt="Feather PDF" src="assets/work/feather-pdf.svg" width="100%"></a>
+      <h3>Feather PDF</h3>
+      A fast PDF reader for Windows, drawn in plain Win32 and GDI on top of PDFium: contents sidebar, background search, text selection and dark mode, with no browser engine or UI framework.
+      <p><sub><b>16 MB</b> with a 541-page book open, under 70 MB while reading · Rust · PDFium</sub></p>
+      <a href="https://github.com/mohameddddt/feather-pdf/releases/latest">Download</a> · <a href="https://github.com/mohameddddt/feather-pdf">Code</a>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://mohameddddt.github.io/work/almanac/"><img alt="Almanac" src="assets/work/almanac.svg" width="100%"></a>
+      <h3>Almanac</h3>
+      The whole day on one page for Android: a calendar, alarms with snooze, a timer and world clocks, tasks with priorities, and daily rituals with streaks, all offline.
+      <p><sub>Kotlin · Jetpack Compose · Material 3</sub></p>
+      <a href="https://mohameddddt.github.io/work/almanac/">Screens</a>
     </td>
   </tr>
 </table>
@@ -130,7 +146,7 @@ I'm in my fourth year at ENSIA, the National Higher School of Artificial Intelli
 <a href="https://mohameddddt.github.io/">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-dark.svg">
-    <img alt="Python, Dart, TypeScript, JavaScript, SQL, Kotlin, Java, scikit-learn, NumPy, Jupyter, PyTorch, pandas, Matplotlib, XGBoost, Hugging Face Transformers, ensembles, LightGBM, WavLM, MedCPT, MobileNetV3, TensorFlow Lite, librosa, SciPy, Gemini API, RAG, embeddings, pgvector, integer programming, PuLP, Branch and Bound, genetic algorithms, simulated annealing, ALNS, dynamic programming, FastAPI, JWT, Flask, Node.js, Express, SQLAlchemy, Gunicorn, Celery, React, Vite, Next.js, Tailwind CSS, TanStack Query, MapLibre, Electron, Flutter, SQLite, BLoC, Firebase Cloud Messaging, Jetpack Compose, Material 3, Coil, DataStore, Provider, GetIt, Hive, PostgreSQL, Supabase, Render, Vercel, PostGIS, Redis, Kaggle, FFmpeg, yt-dlp, ExoPlayer, WebTorrent, Invidious, Chromaprint, GitHub Actions, Docker, pytest, Sentry, Playwright, PyInstaller, computer vision, NLP, audio, geospatial, sports analytics, security, C, C++, Bash, Linux, Git" src="assets/toolbox-light.svg" width="100%">
+    <img alt="Python, Dart, TypeScript, JavaScript, SQL, Kotlin, Rust, Java, scikit-learn, NumPy, Jupyter, PyTorch, pandas, Matplotlib, XGBoost, Hugging Face Transformers, ensembles, LightGBM, WavLM, MedCPT, MobileNetV3, TensorFlow Lite, librosa, SciPy, Gemini API, RAG, embeddings, pgvector, integer programming, PuLP, Branch and Bound, genetic algorithms, simulated annealing, ALNS, dynamic programming, FastAPI, JWT, Flask, Node.js, Express, SQLAlchemy, Gunicorn, Celery, React, Vite, Next.js, Tailwind CSS, TanStack Query, MapLibre, Electron, WebView2, Win32 API, Flutter, SQLite, BLoC, Firebase Cloud Messaging, Jetpack Compose, Material 3, Coil, DataStore, Provider, GetIt, Hive, PostgreSQL, Supabase, Render, Vercel, PostGIS, Redis, Kaggle, FFmpeg, yt-dlp, ExoPlayer, WebTorrent, Invidious, Chromaprint, PDFium, GitHub Actions, Docker, pytest, Sentry, Playwright, computer vision, NLP, audio, geospatial, sports analytics, security, C, C++, Bash, Linux, Git" src="assets/toolbox-light.svg" width="100%">
   </picture>
 </a>
 
